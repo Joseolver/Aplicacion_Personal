@@ -51,7 +51,7 @@ export default function Auth() {
                 <div className="relative z-10 p-16 flex flex-col justify-between h-full text-white">
                     <div>
                         <div className="w-12 h-12 mb-6">
-                            <img src="/icono.svg" alt="Logo" className="w-full h-full object-contain drop-shadow-md" />
+                            <img src="/icono.svg" alt="Logo" className="w-full h-full object-contain drop-shadow-md brightness-0 invert" />
                         </div>
                         <h1 className="text-4xl font-bold tracking-tight mb-4">Mide, analiza y<br />mejora tu vida.</h1>
                         <p className="text-slate-400 text-lg max-w-sm">Registra lo que importa, mantén la consistencia y deja que los datos cuenten tu historia.</p>

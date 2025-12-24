@@ -1,6 +1,6 @@
 {
-    "name": "Personal Tracker",
-    "short_name": "Tracker",
+    "name": "Permon",
+    "short_name": "Permon",
     "description": "App de seguimiento personal y registro de hábitos.",
     "start_url": "/",
     "display": "standalone",

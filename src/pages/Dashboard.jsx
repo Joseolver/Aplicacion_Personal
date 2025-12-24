@@ -73,9 +73,9 @@ export default function Dashboard() {
                 <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex justify-between items-center">
                     <div className="flex items-center gap-2">
                         <div className="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center shadow-indigo-200 shadow-md">
-                            <span className="text-white font-bold text-lg">T</span>
+                            <span className="text-white font-bold text-lg">P</span>
                         </div>
-                        <h1 className="text-xl font-bold text-slate-800 tracking-tight">Tracker</h1>
+                        <h1 className="text-xl font-bold text-slate-800 tracking-tight">Permon</h1>
                     </div>
 
                     <div className="flex items-center gap-6">

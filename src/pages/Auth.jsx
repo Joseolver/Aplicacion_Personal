@@ -51,7 +51,7 @@ export default function Auth() {
                 <div className="relative z-10 p-16 flex flex-col justify-between h-full text-white">
                     <div>
                         <div className="w-10 h-10 bg-indigo-500 rounded-xl flex items-center justify-center mb-6">
-                            <span className="font-bold text-xl">T</span>
+                            <span className="font-bold text-xl">P</span>
                         </div>
                         <h1 className="text-4xl font-bold tracking-tight mb-4">Mide, analiza y<br />mejora tu vida.</h1>
                         <p className="text-slate-400 text-lg max-w-sm">Registra lo que importa, mantén la consistencia y deja que los datos cuenten tu historia.</p>
@@ -60,7 +60,7 @@ export default function Auth() {
                     <div className="space-y-4">
                         <div className="flex items-center gap-4 text-slate-400">
                             <div className="w-8 h-px bg-slate-700"></div>
-                            <span className="text-sm tracking-widest uppercase">Personal Tracker</span>
+                            <span className="text-sm tracking-widest uppercase">Permon</span>
                         </div>
                     </div>
                 </div>
@@ -70,7 +70,7 @@ export default function Auth() {
             <div className="flex-1 flex flex-col justify-center px-4 sm:px-6 lg:px-20 xl:px-24">
                 <div className="mx-auto w-full max-w-sm lg:w-96">
                     <div className="lg:hidden w-10 h-10 bg-indigo-600 rounded-xl flex items-center justify-center mb-8">
-                        <span className="font-bold text-xl text-white">T</span>
+                        <span className="font-bold text-xl text-white">P</span>
                     </div>
 
                     <div className="text-left mb-10">

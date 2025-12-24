@@ -84,7 +84,18 @@ export default function Dashboard() {
                                 <p className="text-xs font-semibold text-slate-700">{user?.email?.split('@')[0]}</p>
                             </div>
                             <button
-                                onClick={signOut}
+                                onClick={async (e) => {
+                                    e.preventDefault()
+                                    try {
+                                        const { error } = await signOut()
+                                        if (error) alert('Error saliendo: ' + error.message)
+                                        // Force clear state locally just in case
+                                        window.location.href = '/'
+                                    } catch (err) {
+                                        console.error(err)
+                                        window.location.href = '/'
+                                    }
+                                }}
                                 className="p-3 sm:p-2 text-slate-400 hover:text-red-600 hover:bg-red-50 rounded-full transition-all active:scale-95 touch-manipulation"
                                 title="Cerrar sesión"
                                 aria-label="Cerrar sesión"

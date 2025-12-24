@@ -86,14 +86,21 @@ export default function Dashboard() {
                             <button
                                 onClick={async (e) => {
                                     e.preventDefault()
+                                    // Visual feedback immediately
+                                    if (!confirm('¿Cerrar sesión?')) return
+
                                     try {
-                                        const { error } = await signOut()
-                                        if (error) alert('Error saliendo: ' + error.message)
-                                        // Force clear state locally just in case
-                                        window.location.href = '/'
+                                        // 1. Try normal signout (max 1s)
+                                        const timeout = new Promise((resolve) => setTimeout(resolve, 1000))
+                                        await Promise.race([signOut(), timeout])
                                     } catch (err) {
                                         console.error(err)
-                                        window.location.href = '/'
+                                    } finally {
+                                        // 2. NUCLEAR OPTION: Clear everything
+                                        localStorage.clear()
+                                        sessionStorage.clear()
+                                        // 3. Force hard reload to login
+                                        window.location.replace('/')
                                     }
                                 }}
                                 className="p-3 sm:p-2 text-slate-400 hover:text-red-600 hover:bg-red-50 rounded-full transition-all active:scale-95 touch-manipulation"

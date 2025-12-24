@@ -85,10 +85,11 @@ export default function Dashboard() {
                             </div>
                             <button
                                 onClick={signOut}
-                                className="p-2 text-slate-400 hover:text-red-600 hover:bg-red-50 rounded-full transition-all"
+                                className="p-3 sm:p-2 text-slate-400 hover:text-red-600 hover:bg-red-50 rounded-full transition-all active:scale-95 touch-manipulation"
                                 title="Cerrar sesión"
+                                aria-label="Cerrar sesión"
                             >
-                                <LogOut size={18} />
+                                <LogOut size={22} className="sm:w-5 sm:h-5" />
                             </button>
                         </div>
                     </div>

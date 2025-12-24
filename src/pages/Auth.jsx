@@ -69,7 +69,7 @@ export default function Auth() {
             {/* Form Side */}
             <div className="flex-1 flex flex-col justify-center px-4 sm:px-6 lg:px-20 xl:px-24">
                 <div className="mx-auto w-full max-w-sm lg:w-96">
-                    <div className="lg:hidden w-24 h-24 mx-auto mb-8">
+                    <div className="lg:hidden w-50 h-50 mx-auto mb-8">
                         <img src="/icono.svg" alt="Logo" className="w-full h-full object-contain" />
                     </div>
 

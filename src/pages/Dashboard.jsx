@@ -71,10 +71,8 @@ export default function Dashboard() {
             {/* Professional Header */}
             <header className="glass sticky top-0 z-20 bg-white/90 backdrop-blur-sm border-b border-slate-200">
                 <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex justify-between items-center">
-                    <div className="flex items-center gap-2">
-                        <div className="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center shadow-indigo-200 shadow-md">
-                            <span className="text-white font-bold text-lg">P</span>
-                        </div>
+                    <div className="flex items-center gap-3">
+                        <img src="/icono.svg" alt="Logo" className="w-9 h-9 shadow-sm rounded-full" />
                         <h1 className="text-xl font-bold text-slate-800 tracking-tight">Permon</h1>
                     </div>
 

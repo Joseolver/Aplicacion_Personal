@@ -8,14 +8,9 @@
     "theme_color": "#0f172a",
     "icons": [
         {
-            "src": "/icono.png",
-            "type": "image/png",
-            "sizes": "192x192"
-        },
-        {
-            "src": "/icono.png",
-            "type": "image/png",
-            "sizes": "512x512"
+            "src": "/icono.svg",
+            "type": "image/svg+xml",
+            "sizes": "any"
         }
     ],
     "orientation": "portrait"

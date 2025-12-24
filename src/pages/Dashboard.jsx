@@ -149,6 +149,11 @@ export default function Dashboard() {
                     </>
                 )}
             </main>
+
+            <div className="mt-12 text-center pb-8 opacity-40 hover:opacity-100 transition-opacity duration-300">
+                <p className="text-xs text-slate-500 font-medium">Permon v1.0.1 • {new Date().getFullYear()}</p>
+            </div>
         </div>
     )
 }
+```

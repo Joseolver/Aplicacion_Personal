@@ -6,7 +6,11 @@ import AspectManager from '../components/AspectManager'
 import DateSelector from '../components/DateSelector'
 import RecordCard from '../components/RecordCard'
 import DataExport from '../components/DataExport'
-import { Loader2, LogOut } from 'lucide-react'
+import LogOut from 'lucide-react/dist/esm/icons/log-out'
+import Loader2 from 'lucide-react/dist/esm/icons/loader-2'
+import Settings from 'lucide-react/dist/esm/icons/settings'
+import UseTheme from '../context/ThemeContext'
+import ThemeToggle from '../components/ThemeToggle'
 
 export default function Dashboard() {
     const { user, signOut } = useAuth()
@@ -14,6 +18,7 @@ export default function Dashboard() {
     const [records, setRecords] = useState([])
     const [currentDate, setCurrentDate] = useState(new Date().toISOString().split('T')[0])
     const [loading, setLoading] = useState(true)
+    const [showSettings, setShowSettings] = useState(false)
 
     const fetchData = async () => {
         setLoading(true)

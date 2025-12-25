@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useAuth } from '../context/AuthContext'
 import { useNavigate } from 'react-router-dom'
 import { Loader2, ArrowRight } from 'lucide-react'
+import ThemeToggle from '../components/ThemeToggle'
 
 export default function Auth() {
     const [isLogin, setIsLogin] = useState(true)
@@ -44,7 +45,11 @@ export default function Auth() {
     }
 
     return (
-        <div className="flex min-h-screen bg-slate-50">
+        <div className="flex min-h-screen bg-slate-50 dark:bg-slate-950 transition-colors duration-500 relative">
+            <div className="absolute top-4 right-4 z-50">
+                <ThemeToggle />
+            </div>
+
             {/* Visual Side */}
             <div className="hidden lg:flex lg:w-1/2 bg-slate-900 relative overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-indigo-900 via-slate-900 to-black opacity-90"></div>

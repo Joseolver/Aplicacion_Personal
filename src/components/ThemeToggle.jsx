@@ -21,16 +21,18 @@ export default function ThemeToggle({ className = '', simple = false }) {
     return (
         <button
             onClick={toggleTheme}
-            className={`relative w-10 h-10 rounded-full bg-white dark:bg-slate-800 shadow-lg flex items-center justify-center transition-all hover:scale-105 active:scale-95 border border-slate-200 dark:border-slate-700 ${className}`}
+            className={`relative w-10 h-10 rounded-full bg-white dark:bg-slate-800 shadow-lg grid place-items-center transition-all hover:scale-105 active:scale-95 border border-slate-200 dark:border-slate-700 ${className}`}
             title={isDark ? "Cambiar a modo claro" : "Cambiar a modo oscuro"}
         >
-            <div className="relative w-5 h-5">
+            <div className="relative w-5 h-5 flex items-center justify-center">
                 <Sun
-                    className={`absolute inset-0 text-amber-500 transition-all duration-500 ${isDark ? 'rotate-90 opacity-0 scale-50' : 'rotate-0 opacity-100 scale-100'}`}
+                    className={`absolute text-amber-500 transition-all duration-500 ${isDark ? 'rotate-90 opacity-0 scale-50' : 'rotate-0 opacity-100 scale-100'}`}
+                    size={20}
                     strokeWidth={1.5}
                 />
                 <Moon
-                    className={`absolute inset-0 text-indigo-400 transition-all duration-500 ${isDark ? 'rotate-0 opacity-100 scale-100' : '-rotate-90 opacity-0 scale-50'}`}
+                    className={`absolute text-indigo-400 transition-all duration-500 ${isDark ? 'rotate-0 opacity-100 scale-100' : '-rotate-90 opacity-0 scale-50'}`}
+                    size={20}
                     strokeWidth={1.5}
                 />
             </div>

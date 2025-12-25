@@ -79,10 +79,10 @@ export default function Auth() {
                     </div>
 
                     <div className="text-left mb-10">
-                        <h2 className="text-2xl font-bold tracking-tight text-slate-900">
+                        <h2 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-white">
                             {isLogin ? 'Bienvenido de nuevo' : 'Comienza tu viaje'}
                         </h2>
-                        <p className="mt-2 text-sm text-slate-500">
+                        <p className="mt-2 text-sm text-slate-500 dark:text-slate-400">
                             {isLogin ? 'Introduce tus datos para acceder.' : 'Crea una cuenta para empezar a registrar.'}
                         </p>
                     </div>
@@ -90,11 +90,11 @@ export default function Auth() {
                     <form className="space-y-5" onSubmit={handleSubmit}>
                         {!isLogin && (
                             <div>
-                                <label className="block text-sm font-medium text-slate-700 mb-1.5">Nombre Completo</label>
+                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1.5">Nombre Completo</label>
                                 <input
                                     type="text"
                                     required
-                                    className="block w-full rounded-lg border-slate-200 bg-white px-3 py-2 text-slate-900 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                                    className="block w-full rounded-lg border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-3 py-2 text-slate-900 dark:text-white shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm transition-colors"
                                     value={fullName}
                                     onChange={(e) => setFullName(e.target.value)}
                                 />
@@ -102,29 +102,29 @@ export default function Auth() {
                         )}
 
                         <div>
-                            <label className="block text-sm font-medium text-slate-700 mb-1.5">Email</label>
+                            <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1.5">Email</label>
                             <input
                                 type="email"
                                 required
-                                className="block w-full rounded-lg border-slate-200 bg-white px-3 py-2 text-slate-900 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                                className="block w-full rounded-lg border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-3 py-2 text-slate-900 dark:text-white shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm transition-colors"
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
                             />
                         </div>
 
                         <div>
-                            <label className="block text-sm font-medium text-slate-700 mb-1.5">Contraseña</label>
+                            <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1.5">Contraseña</label>
                             <input
                                 type="password"
                                 required
-                                className="block w-full rounded-lg border-slate-200 bg-white px-3 py-2 text-slate-900 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                                className="block w-full rounded-lg border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-3 py-2 text-slate-900 dark:text-white shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm transition-colors"
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
                             />
                         </div>
 
                         {error && (
-                            <div className="rounded-md bg-red-50 p-3 text-sm text-red-600 border border-red-100">
+                            <div className="rounded-md bg-red-50 dark:bg-red-900/20 p-3 text-sm text-red-600 dark:text-red-400 border border-red-100 dark:border-red-900/40">
                                 {error}
                             </div>
                         )}
@@ -144,7 +144,7 @@ export default function Auth() {
                     </form>
 
                     <div className="mt-8 text-center">
-                        <p className="text-sm text-slate-500">
+                        <p className="text-sm text-slate-500 dark:text-slate-400">
                             {isLogin ? '¿No tienes cuenta?' : '¿Ya tienes cuenta?'}
                             <button
                                 type="button"

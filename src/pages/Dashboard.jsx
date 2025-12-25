@@ -9,7 +9,6 @@ import DataExport from '../components/DataExport'
 import LogOut from 'lucide-react/dist/esm/icons/log-out'
 import Loader2 from 'lucide-react/dist/esm/icons/loader-2'
 import Settings from 'lucide-react/dist/esm/icons/settings'
-import UseTheme from '../context/ThemeContext'
 import ThemeToggle from '../components/ThemeToggle'
 
 export default function Dashboard() {
@@ -72,48 +71,71 @@ export default function Dashboard() {
     }, [user, currentDate])
 
     return (
-        <div className="min-h-screen bg-slate-50 selection:bg-indigo-100 selection:text-indigo-900">
+        <div className="min-h-screen bg-slate-50 dark:bg-slate-950 transition-colors duration-500 selection:bg-indigo-100 selection:text-indigo-900 dark:selection:bg-indigo-900 dark:selection:text-indigo-100">
             {/* Professional Header */}
-            <header className="glass sticky top-0 z-20 bg-white/90 backdrop-blur-sm border-b border-slate-200">
+            <header className="glass sticky top-0 z-20 bg-white/90 dark:bg-slate-900/90 backdrop-blur-sm border-b border-slate-200 dark:border-slate-800 transition-colors duration-500">
                 <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex justify-between items-center">
                     <div className="flex items-center gap-3">
-                        <img src="/icono.svg" alt="Logo" className="w-9 h-9 shadow-sm rounded-full" />
-                        <h1 className="text-xl font-bold text-slate-800 tracking-tight">Permon</h1>
+                        <img src="/icono.svg" alt="Logo" className="w-9 h-9 shadow-sm rounded-full bg-white dark:bg-slate-800" />
+                        <h1 className="text-xl font-bold text-slate-800 dark:text-slate-100 tracking-tight">Permon</h1>
                     </div>
 
                     <div className="flex items-center gap-6">
                         <DataExport />
-                        <div className="h-4 w-px bg-slate-200 hidden sm:block"></div>
-                        <div className="flex items-center gap-3">
-                            <div className="text-right hidden sm:block">
-                                <p className="text-xs font-semibold text-slate-700">{user?.email?.split('@')[0]}</p>
-                            </div>
-                            <button
-                                onClick={async (e) => {
-                                    e.preventDefault()
-                                    // Visual feedback immediately
-                                    if (!confirm('¿Cerrar sesión?')) return
+                        <div className="h-4 w-px bg-slate-200 dark:bg-slate-700 hidden sm:block"></div>
 
-                                    try {
-                                        // 1. Try normal signout (max 1s)
-                                        const timeout = new Promise((resolve) => setTimeout(resolve, 1000))
-                                        await Promise.race([signOut(), timeout])
-                                    } catch (err) {
-                                        console.error(err)
-                                    } finally {
-                                        // 2. NUCLEAR OPTION: Clear everything
-                                        localStorage.clear()
-                                        sessionStorage.clear()
-                                        // 3. Force hard reload to login
-                                        window.location.replace('/')
-                                    }
-                                }}
-                                className="p-3 sm:p-2 text-slate-400 hover:text-red-600 hover:bg-red-50 rounded-full transition-all active:scale-95 touch-manipulation"
-                                title="Cerrar sesión"
-                                aria-label="Cerrar sesión"
+                        <div className="relative">
+                            <button
+                                onClick={() => setShowSettings(!showSettings)}
+                                className="p-2 text-slate-400 hover:text-indigo-600 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full transition-all"
+                                title="Ajustes"
                             >
-                                <LogOut size={22} className="sm:w-5 sm:h-5" />
+                                <Settings size={20} />
                             </button>
+
+                            {/* Dropdown Menu */}
+                            {showSettings && (
+                                <div className="absolute right-0 mt-2 w-56 bg-white dark:bg-slate-900 rounded-xl shadow-xl border border-slate-100 dark:border-slate-800 p-2 z-50 animate-in fade-in zoom-in-95 duration-200">
+                                    <div className="px-3 py-2 mb-2 border-b border-slate-100 dark:border-slate-800">
+                                        <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Cuenta</p>
+                                        <p className="text-sm font-medium text-slate-900 dark:text-slate-200 truncate">{user?.email}</p>
+                                    </div>
+
+                                    <div className="px-3 py-2 flex items-center justify-between hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg transition-colors">
+                                        <span className="text-sm text-slate-600 dark:text-slate-300">Apariencia</span>
+                                        <ThemeToggle simple={true} />
+                                    </div>
+
+                                    <div className="h-px bg-slate-100 dark:bg-slate-800 my-1"></div>
+
+                                    <button
+                                        onClick={async (e) => {
+                                            e.preventDefault()
+                                            if (!confirm('¿Cerrar sesión?')) return
+
+                                            try {
+                                                const timeout = new Promise((resolve) => setTimeout(resolve, 1000))
+                                                await Promise.race([signOut(), timeout])
+                                            } catch (err) {
+                                                console.error(err)
+                                            } finally {
+                                                localStorage.clear()
+                                                sessionStorage.clear()
+                                                window.location.replace('/')
+                                            }
+                                        }}
+                                        className="w-full flex items-center gap-2 px-3 py-2 text-sm text-red-600 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-lg transition-colors"
+                                    >
+                                        <LogOut size={16} />
+                                        <span>Cerrar Sesión</span>
+                                    </button>
+                                </div>
+                            )}
+
+                            {/* Backdrop to close */}
+                            {showSettings && (
+                                <div className="fixed inset-0 z-40" onClick={() => setShowSettings(false)}></div>
+                            )}
                         </div>
                     </div>
                 </div>
@@ -130,7 +152,7 @@ export default function Dashboard() {
                     <>
                         <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
                             <div className="flex items-center justify-between mb-6">
-                                <h2 className="text-lg font-bold text-slate-800 flex items-center gap-2">
+                                <h2 className="text-lg font-bold text-slate-800 dark:text-slate-100 flex items-center gap-2">
                                     <span className="w-1.5 h-6 bg-indigo-600 rounded-full"></span>
                                     Registro Diario
                                 </h2>
@@ -140,11 +162,11 @@ export default function Dashboard() {
                             </div>
 
                             {aspects.filter(a => a.is_active).length === 0 ? (
-                                <div className="text-center py-16 bg-white rounded-2xl border border-dashed border-slate-200 shadow-sm">
-                                    <div className="w-16 h-16 bg-slate-50 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <div className="text-center py-16 bg-white dark:bg-slate-900 rounded-2xl border border-dashed border-slate-200 dark:border-slate-800 shadow-sm">
+                                    <div className="w-16 h-16 bg-slate-50 dark:bg-slate-800 rounded-full flex items-center justify-center mx-auto mb-4">
                                         <span className="text-2xl">✨</span>
                                     </div>
-                                    <h3 className="text-lg font-semibold text-slate-800">Todo listo para empezar</h3>
+                                    <h3 className="text-lg font-semibold text-slate-800 dark:text-slate-100">Todo listo para empezar</h3>
                                     <p className="text-slate-500 mt-2 max-w-sm mx-auto">
                                         Define las áreas de tu vida que quieres monitorear en la sección de abajo.
                                     </p>
@@ -165,7 +187,7 @@ export default function Dashboard() {
                             )}
                         </div>
 
-                        <div className="border-t border-slate-200 pt-10">
+                        <div className="border-t border-slate-200 dark:border-slate-800 pt-10">
                             <AspectManager aspects={aspects} onUpdate={refreshAspects} />
                         </div>
                     </>

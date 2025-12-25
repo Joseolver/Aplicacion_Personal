@@ -75,7 +75,7 @@ export default function Auth() {
             <div className="flex-1 flex flex-col justify-center px-4 sm:px-6 lg:px-20 xl:px-24">
                 <div className="mx-auto w-full max-w-sm lg:w-96">
                     <div className="lg:hidden w-50 h-50 mx-auto mb-8">
-                        <img src="/icono.svg" alt="Logo" className="w-full h-full object-contain" />
+                        <img src="/icono.svg" alt="Logo" className="w-full h-full object-contain brightness-0 dark:invert" />
                     </div>
 
                     <div className="text-left mb-10">

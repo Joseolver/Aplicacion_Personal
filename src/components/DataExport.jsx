@@ -76,7 +76,7 @@ export default function DataExport() {
         <button
             onClick={handleExport}
             disabled={loading}
-            className="flex items-center gap-2 text-sm text-slate-500 hover:text-indigo-600 transition-colors"
+            className="flex items-center gap-2 text-sm text-slate-500 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
             title="Exportar datos para IA"
         >
             {loading ? <Loader2 size={18} className="animate-spin" /> : <Download size={18} />}

@@ -73,10 +73,12 @@ export default function Dashboard() {
     return (
         <div className="min-h-screen bg-slate-50 dark:bg-slate-950 transition-colors duration-500 selection:bg-indigo-100 selection:text-indigo-900 dark:selection:bg-indigo-900 dark:selection:text-indigo-100">
             {/* Professional Header */}
-            <header className="glass sticky top-0 z-20 bg-white/90 dark:bg-slate-900/90 backdrop-blur-sm border-b border-slate-200 dark:border-slate-800 transition-colors duration-500">
+            <header className="glass sticky top-0 z-20 transition-colors duration-500">
                 <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex justify-between items-center">
                     <div className="flex items-center gap-3">
-                        <img src="/icono.svg" alt="Logo" className="w-9 h-9 shadow-sm rounded-full bg-white dark:bg-slate-800" />
+                        <div className="w-14 h-14 shadow-sm rounded-full bg-white dark:bg-slate-950 flex items-center justify-center border border-slate-200 dark:border-slate-800 transition-colors">
+                            <img src="/icono.svg" alt="Logo" className="w-12 h-12 brightness-0 dark:invert transition-all" />
+                        </div>
                         <h1 className="text-xl font-bold text-slate-800 dark:text-slate-100 tracking-tight">Permon</h1>
                     </div>
 
